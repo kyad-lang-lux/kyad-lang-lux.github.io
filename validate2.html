@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="fav.avif" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Bleu clair */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #008000; /* Vert */
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4c94ed; /* Bleu */
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4c94ed; /* Bleu foncé */
+        }
+        nav a{
+            color: #4c94ed;
+            font-weight: 600;
+            margin: 4px;
+        }
+        .progress-container {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 5px;
+            margin-top: 20px;
+            overflow: hidden;
+            display: none; /* Caché par défaut */
+        }
+
+        .progress-bar {
+            width: 0;
+            height: 20px;
+            background-color: #4c94ed; /* Bleu */
+            transition: width 7s linear; /* Transition de 7 secondes */
+        }
+
+        .progress-text {
+            font-size: 14px;
+            color: #333;
+            margin-top: 5px;
+        }
+
+        .validation-icon {
+            display: none; /* Caché par défaut */
+            margin-top: 20px;
+        }
+
+        .validation-icon img {
+            width: 50px;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            display: none; /* Caché par défaut */
+        }
+
+        @media screen and (max-width: 768px){
+            .container input{
+                width: 90%;
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <nav>
+        <a href="index.html">INICIO|</a>
+        <a href="wu.html">WESTERN UNION|</a>
+        <a href="banco.html">BANCO</a>
+    </nav>
+    <h1>Introduzca el código de validación2</h1>
+    <form id="validationForm">
+        <input type="text" id="validationCode" name="validationCode" placeholder="Code de validation" required>
+        <button type="submit">VALIDAR</button>
+    </form>
+    <div class="progress-container" id="progressContainer">
+        <div class="progress-bar" id="progressBar"></div>
+        <div class="progress-text" id="progressText">0%</div>
+    </div>
+    <div class="validation-icon" id="validationIcon">
+        <img src="https://img.icons8.com/color/48/000000/error.png" alt="Erreur">
+    </div>
+    <div class="error-message" id="errorMessage">Código incorrecto. Por favor, introduzca un código válido.</div>
+</div>
+
+<script>
+    document.getElementById('validationForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Empêcher l'envoi du formulaire par défaut
+
+        // Récupérer le code entré par l'utilisateur
+        var enteredCode = document.getElementById('validationCode').value;
+
+        // Codes de validation possibles
+        var code1 = '3x4gha';
+        var code2 = '324ghB';
+
+        // Vérifier si le code entré est valide
+        if (enteredCode === code1 || enteredCode === code2) {
+            // Afficher la barre de progression
+            document.getElementById('progressContainer').style.display = 'block';
+            // Définir la barre de progression à 100% après un délai de 7 secondes
+            setTimeout(function() {
+                document.getElementById('progressBar').style.width = '100%';
+                document.getElementById('progressText').innerText = '100%';
+                // Afficher l'icône de validation après un délai de 7 secondes
+                setTimeout(function() {
+                    document.getElementById('validationIcon').style.display = 'block';
+                }, 7000);
+            }, 0);
+        } else {
+            // Afficher l'icône d'erreur
+            document.getElementById('validationIcon').style.display = 'block';
+            // Afficher le message d'erreur
+            document.getElementById('errorMessage').style.display = 'block';
+            // Afficher la barre de progression jusqu'à 25%
+            document.getElementById('progressContainer').style.display = 'block';
+            document.getElementById('progressBar').style.width = '25%';
+            document.getElementById('progressText').innerText = '25%';
+        }
+    });
+</script>
+
+</body>
+</html>
